@@ -6,7 +6,7 @@ import cv2
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = tf.keras.models.load_model("Weather_App.h5")  # Adjust path as necessary
+    model = tf.keras.models.load_model("Weather_App3.keras")  # Adjust path as necessary
     return model
 
 model = load_model()
