@@ -12,9 +12,9 @@ def load_model():
 model = load_model()
 
 st.write("""
-# Weather Image Classification System
+# Weather Image Classification System 
 """)
-
+st.write("by Allen G. Opeña")
 file = st.file_uploader("Choose a weather photo from your computer", type=["jpg", "png"])
 
 
