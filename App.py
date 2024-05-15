@@ -1,12 +1,12 @@
+import numpy as np
+from PIL import Image, ImageOps
 import streamlit as st
 import tensorflow as tf
-from PIL import Image, ImageOps
-import numpy as np
-import cv2
-
+# Load your trained model (replace 'model' with your actual model)
+# Example: model = load_model('path/to/your/model.h5')
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = tf.keras.models.load_model("Weather_App3.keras")  # Adjust path as necessary
+    model = tf.keras.models.load_model("Weather_App_Finals.keras")  # Adjust path as necessary
     return model
 
 model = load_model()
@@ -17,24 +17,24 @@ st.write("""
 
 file = st.file_uploader("Choose a weather photo from your computer", type=["jpg", "png"])
 
+
 def import_and_predict(image_data, model):
-    size = (150, 150)
-    image = ImageOps.fit(image_data, size, method=Image.LANCZOS)
-    image = np.asarray(image)
-    img = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)  # Use COLOR_RGB2BGR instead
-    img_reshape = img[np.newaxis, ...]
-    prediction = model.predict(img_reshape)
+    size = (150, 150)  # Adjust size as per model's requirement
+    image = ImageOps.fit(image_data, size)
+    img_array = np.asarray(image)
+    img_array = img_array[np.newaxis, ...]  # Create a batch of one image
+    img_array = img_array / 255.0  # Normalize the image
+
+    prediction = model.predict(img_array)
     return prediction
 
 if file is None:
     st.text("Please upload an image file")
 else:
-    try:
-        image = Image.open(file)
-        st.image(image, use_column_width=True)
-        prediction = import_and_predict(image, model)
-        class_names = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
-        string = "OUTPUT: " + class_names[np.argmax(prediction)]
-        st.success(string)
-    except Exception as e:
-        st.error(f"An error occurred: {e}")
+    image = Image.open(file)
+    st.image(image, use_column_width=True)
+    prediction = import_and_predict(image, model)
+    class_labels = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
+    predicted_class_index = np.argmax(prediction)
+    predicted_class_label = class_labels[predicted_class_index]
+    st.success(f"OUTPUT: {predicted_class_label}")
