@@ -44,10 +44,10 @@ else:
 
 # Example images
 example_images = {
-    'Cloudy':'/workspaces/Weather-Image-Classification/Cloudy.jpg',
-    'Rain':'/workspaces/Weather-Image-Classification/Rain.jpg',
-    'Shine':'/workspaces/Weather-Image-Classification/Shine.jpg',
-    'Sunrise':'/workspaces/Weather-Image-Classification/Sunrise.jpg'
+    'Cloudy':'Cloudy.jpg',
+    'Rain':'Rain.jpg',
+    'Shine':'Shine.jpg',
+    'Sunrise':'Sunrise.jpg'
 }
 # Displaying example images for each category
 st.write("## Example Images")
