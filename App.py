@@ -44,8 +44,6 @@ else:
             st.success(f"OUTPUT: {predicted_class_label}, Confidence: {confidence_percentage}%")
         else:
             st.error("The uploaded image does not appear to be a weather image.")
-    except:
-        st.error("Invalid file format. Please upload a valid image.")
 # Example images
 example_images = {
     'Cloudy':'Cloudy.jpg',
