@@ -32,15 +32,18 @@ def import_and_predict(image_data, model):
 if file is None:
     st.text("Please upload an image file")
 else:
-    image = Image.open(file)
-    st.image(image, use_column_width=True)
-    prediction = import_and_predict(image, model)
-    class_labels = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
-    predicted_class_index = np.argmax(prediction)
-    predicted_class_label = class_labels[predicted_class_index]
-    confidence_percentage = round(np.max(prediction) * 100, 2)
-    st.success(f"OUTPUT: {predicted_class_label}")
-    st.write(f"Confidence: {confidence_percentage}%")
+    try:
+        image = Image.open(file)
+        st.image(image, use_column_width=True)
+        prediction = import_and_predict(image, model)
+        class_labels = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
+        predicted_class_index = np.argmax(prediction)
+        predicted_class_label = class_labels[predicted_class_index]
+        confidence_percentage = round(np.max(prediction) * 100, 2)
+        st.success(f"OUTPUT: {predicted_class_label}")
+        st.write(f"Confidence: {confidence_percentage}%")
+     except:
+        st.error("Invalid file format. Please upload a valid weather image.")
 
 # Example images
 example_images = {
