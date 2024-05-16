@@ -42,7 +42,7 @@ else:
         confidence_percentage = round(np.max(prediction) * 100, 2)
         st.success(f"OUTPUT: {predicted_class_label}")
         st.write(f"Confidence: {confidence_percentage}%")
-     except:
+    except:
         st.error("Invalid file format. Please upload a valid weather image.")
 
 # Example images
