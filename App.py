@@ -12,9 +12,10 @@ def load_model():
 model = load_model()
 
 st.write("""
-# Weather Image Classification System 
+# Weather Image Classification System
 """)
-st.write("by Allen G. Opeña")
+st.write(f'Allen Gerald G. Opeña')
+st.write(f'May 19,2024')
 file = st.file_uploader("Choose a weather photo from your computer", type=["jpg", "png"])
 
 
@@ -37,4 +38,20 @@ else:
     class_labels = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
     predicted_class_index = np.argmax(prediction)
     predicted_class_label = class_labels[predicted_class_index]
+    confidence_percentage = round(np.max(prediction) * 100, 2)
     st.success(f"OUTPUT: {predicted_class_label}")
+    st.write(f"Confidence: {confidence_percentage}%")
+
+# Example images
+example_images = {
+    'Cloudy':'/workspaces/Weather-Image-Classification/Cloudy.jpg',
+    'Rain':'/workspaces/Weather-Image-Classification/Rain.jpg',
+    'Shine':'/workspaces/Weather-Image-Classification/Shine.jpg',
+    'Sunrise':'/workspaces/Weather-Image-Classification/Sunrise.jpg'
+}
+# Displaying example images for each category
+st.write("## Example Images")
+for label, path in example_images.items():
+    image = Image.open(path)
+    st.image(image, caption=f'Example of {label}', use_column_width=True)
+    
