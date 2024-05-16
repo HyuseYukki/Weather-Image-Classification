@@ -53,5 +53,5 @@ example_images = {
 st.write("## Example Images")
 for label, path in example_images.items():
     image = Image.open(path)
-    st.image(image, caption=f'Example of {label}', use_column_width=True)
+    st.image(image, caption='Example of {label}', use_column_width=True)
     
