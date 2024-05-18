@@ -15,7 +15,7 @@ st.write("""
 # Weather Image Classification System
 """)
 st.write(f'Allen Gerald G. Opeña')
-st.write(f'May 19, 2024')
+st.write(f'CPE32S1  May 19, 2024')
 file = st.file_uploader("Choose a weather photo from your computer", type=["jpg", "png"])
 
 
