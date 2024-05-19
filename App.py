@@ -10,7 +10,6 @@ def load_model():
     return model
 
 model = load_model()
-st.set_page_config(page_title="Weather Image Classification", page_icon="cloudy.png")
 
 st.write("""
 # Weather Image Classification System
