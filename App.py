@@ -47,7 +47,7 @@ else:
     predicted_class_index = np.argmax(prediction)
     predicted_class_label = class_labels[predicted_class_index]
     confidence_percentage = round(np.max(prediction) * 100, 2)
-    st.success(f"OUTPUT: {predicted_class_label}")
+    st.success(f"It is classified as: {predicted_class_label}")
     st.write(f"Confidence: {confidence_percentage}%")
      
 # Example images
