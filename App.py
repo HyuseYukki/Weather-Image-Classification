@@ -2,6 +2,14 @@ import numpy as np
 from PIL import Image, ImageOps
 import streamlit as st
 import tensorflow as tf
+
+
+st.set_page_config(
+    page_title="Weather Classification System",
+    page_icon="cloudy.png",
+    layout="centered",
+    initial_sidebar_state="expanded"
+)
 # Load your trained model (replace 'model' with your actual model)
 # Example: model = load_model('path/to/your/model.h5')
 @st.cache(allow_output_mutation=True)
