@@ -50,7 +50,7 @@ example_images = {
     'Sunrise':'Sunrise.jpg'
 }
 # Displaying example images for each category
-st.write("## Example Images")
+st.write("## Example of Weather Images")
 for label, path in example_images.items():
     image = Image.open(path)
     st.image(image, caption=f'Example of {label}', use_column_width=True)
