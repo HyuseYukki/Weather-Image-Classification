@@ -30,6 +30,7 @@ def import_and_predict(image_data, model):
     return prediction
 
 if file is None:
+    st.text("Please upload an image file")
 else:
     image = Image.open(file)
     st.image(image, use_column_width=True)
