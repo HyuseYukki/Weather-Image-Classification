@@ -11,7 +11,6 @@ def load_model():
 
 model = load_model()
 
-st.set_page_config(page_title="Weather Image Classification", page_icon="🌦️")
 st.write("""
 # Weather Image Classification System
 """)
